@@ -1,0 +1,41 @@
+<!-- ejs view engine -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script>
+        const ROOM_ID = "<%= roomId %>"               // render code from server
+    </script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Video Call</title>
+    <style>
+        #video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);        /* every column is 300px wide */
+            grid-auto-rows: 300px;                                  /* every row is 300px tall */    
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;          /* restrict the video aspect ratio to fit 300x300 px window */
+            padding: 20px;
+            border-radius: 30px;
+            transform: rotateY(180deg);
+            /* Safari and Chrome */
+            -webkit-transform: rotateY(180deg);
+            /* Firefox */
+            -moz-transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="video-grid"></div>
+    </div>
+</body>
+</html>

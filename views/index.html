@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Video Call</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30" style="background: #181a1b;">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-55" style="color: white;">
+						Video Call
+					</span>
+
+					<div class="wrap-input100 m-b-16">
+						<input class="input100" type="text" id="roomId" placeholder="Enter Room Id">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+                            <!-- <span class="lnr lnr-envelope"></span> -->
+                            <i class="fa fa-home" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<!-- <div class="wrap-input100 m-b-16">
+						<input class="input100" type="password" name="password" id="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div> -->
+
+					<!-- <div class="contact100-form-checkbox m-l-4">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div> -->
+					
+					<div class="container-login100-form-btn p-t-25">
+						<button type="button" class="login100-form-btn" id="1" onclick="btnAction(this)">
+							Join Room
+						</button>
+					</div>
+
+					<!-- <div class="text-center w-full p-t-42 p-b-22"> -->
+                    <div class="text-center p-t-12">
+						<span class="txt2">
+							Or
+                        </span>
+                    </div>
+                    
+                    <div class="container-login100-form-btn">
+						<button type="button" class="login100-form-btn" style="background-color: #333333;" id="2" onclick="btnAction(this)">
+							Create new room
+						</button>
+                    </div>
+                    
+                    <script>
+                        function btnAction(elem) {
+                            switch (elem.id) {
+                                case '1':
+                                    const id = document.getElementById("roomId").value
+                                    if(!id) {
+                                        alert("Please enter a Room Id to join.")
+                                    }
+                                    else {
+                                        window.location = `https://sat-webrtc.herokuapp.com/${id}`
+                                    }
+                                    break;
+                                
+                                case '2':
+                                    window.location = `https://sat-webrtc.herokuapp.com/create`
+                                    break;
+                            }
+                        }
+                    </script>
+
+					<!-- <a href="#" class="btn-face m-b-10">
+						<i class="fa fa-facebook-official"></i>
+						Facebook
+					</a>
+
+					<a href="#" class="btn-google m-b-10">
+						<img src="images/icons/icon-google.png" alt="GOOGLE">
+						Google
+					</a>
+
+					<div class="text-center w-full p-t-115">
+						<span class="txt1">
+							Not a member?
+						</span>
+						<a class="txt1 bo1 hov1" href="#">
+							Sign up now							
+						</a>
+					</div> -->
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+<!--===============================================================================================-->
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <!-- <script>
+        document.querySelector('#login').addEventListener('click', login);
+        function login(event) {
+            event.preventDefault();
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                   console.log(this.responseText);
+                   location.href = '/home';
+                }
+            }
+
+            let jsonString = {
+                story: 'story',
+                question: 'question'
+            };
+            xhttp.open('post', `http://localhost:3001/login`, true);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify(jsonString));
+        }
+    </script> -->
+
+</body>
+</html>
