@@ -76,6 +76,16 @@ body {
     overflow-y: scroll;
 }
 
+/* hide scrollbar from safari, chrome, opera */
+.main__chatWindow::-webkit-scrollbar {
+    display: none;
+}
+
+.main__chatWindow {
+    -ms-overflow-style: none;   /* hide scrollbar from IE and Edge */
+    scrollbar-width: none;      /* hide scrollbar from  firefox */
+}
+
 .main__messageContainer {
     padding: 22px 12px;
     display: flex;
@@ -99,7 +109,9 @@ body {
 
 #video-grid {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 5px;
 }
 
 video {
@@ -107,4 +119,6 @@ video {
     width: 400px;
     object-fit: cover;
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
 }
